@@ -1,1 +1,168 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Base */
+body {
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.5s ease;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s;
+}
+.nav-links a:hover,
+.nav-links .active {
+  color: #e60000;
+}
+#toggleBtn {
+  padding: 8px 15px;
+  background: #e60000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+#toggleBtn:hover {
+  background: #ff3333;
+}
+
+/* Hero */
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #f5f5f5, #ddd);
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.cta-btn:hover {
+  background: #e60000;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background: #fafafa;
+}
+.feature {
+  max-width: 300px;
+  text-align: center;
+}
+.feature h2 {
+  margin-bottom: 15px;
+  color: #e60000;
+}
+
+/* Page Content */
+.page-content {
+  padding: 50px;
+  text-align: center;
+}
+.page-content h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+.page-content p, .page-content ul {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1.1rem;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+form input, form textarea, form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+form button {
+  background: #e60000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+form button:hover {
+  background: #ff3333;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+}
+
+/* Themes */
+.luxury {
+  background: #f5f5f5;
+  color: #111;
+}
+.hyper {
+  background: #0d0d0d;
+  color: #e60000;
+  text-shadow: 0 0 10px #e60000;
+}
+.hyper .navbar {
+  background: rgba(20,20,20,0.9);
+}
+.hyper .cta-btn {
+  background: #e60000;
+}
+.hyper .features {
+  background: #111;
+}

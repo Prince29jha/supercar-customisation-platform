@@ -8,8 +8,9 @@
 /* Base */
 body {
   font-family: 'Montserrat', sans-serif;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -18,29 +19,43 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   position: sticky;
   top: 0;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #fff;
+  letter-spacing: 1px;
 }
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 .nav-links a {
   text-decoration: none;
   font-weight: 600;
   color: #fff;
+  position: relative;
   transition: color 0.3s;
 }
-.nav-links a:hover,
-.nav-links .active {
-  color: #e60000;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e60000;
+  transition: width 0.3s;
+}
+.nav-links a:hover::after,
+.nav-links .active::after {
+  width: 100%;
 }
 #toggleBtn {
   padding: 8px 15px;
@@ -49,10 +64,11 @@ body {
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 #toggleBtn:hover {
   background: #ff3333;
+  transform: scale(1.05);
 }
 
 /* Hero */
@@ -62,11 +78,19 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(to right, #f5f5f5, #ddd);
+  background: linear-gradient(120deg, #f5f5f5, #ddd);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 .hero-content p {
   font-size: 1.2rem;
@@ -80,21 +104,30 @@ body {
   text-decoration: none;
   border-radius: 5px;
   transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 .cta-btn:hover {
   background: #e60000;
+  transform: translateY(-3px);
 }
 
 /* Features */
 .features {
   display: flex;
   justify-content: space-around;
-  padding: 50px 20px;
+  flex-wrap: wrap;
+  padding: 60px 20px;
   background: #fafafa;
 }
 .feature {
   max-width: 300px;
   text-align: center;
+  margin: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 .feature h2 {
   margin-bottom: 15px;
@@ -103,7 +136,7 @@ body {
 
 /* Page Content */
 .page-content {
-  padding: 50px;
+  padding: 60px;
   text-align: center;
 }
 .page-content h1 {
@@ -142,9 +175,10 @@ form button:hover {
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   background: #111;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 
 /* Themes */
@@ -153,7 +187,7 @@ footer {
   color: #111;
 }
 .hyper {
-  background: #0d0d0d;
+  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
   color: #e60000;
   text-shadow: 0 0 10px #e60000;
 }
@@ -162,7 +196,11 @@ footer {
 }
 .hyper .cta-btn {
   background: #e60000;
+  box-shadow: 0 0 20px #e60000;
 }
-.hyper .features {
+.hyper .feature {
   background: #111;
+  color: #e60000;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(230,0,0,0.3);
 }
